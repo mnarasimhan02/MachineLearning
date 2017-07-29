@@ -13869,6 +13869,13 @@ Make sure to keep track of the various features and conditions you tried before 
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Question-4">Question 4<a class="anchor-link" href="#Question-4">&#182;</a></h3><p><em>Describe the steps you took to implement the final prediction model so that it got an accuracy of at least 80%. What features did you look at? Were certain features more informative than others? Which conditions did you use to split the survival outcomes in the data? How accurate are your predictions?</em><br>
 <strong>Hint:</strong> Run the code cell below to see the accuracy of your predictions.</p>
+<p>Answer: Pclass','sex' and 'Age' are the features I used to implement the final prediction. 
+In chart 1, you can see lot of female  pclass=1 and pclass=2 survived 
+In 2, you can see pclass=3 for male, lot of people did not survive
+In 3, you can see for male, everyone with Age &lt;10 survived
+In 4, no Female with age between 40-60 of pclass 3 survived
+In the above four charts, it is clear that for males, with age &lt;10 years and pclass not in 3 survived.
+For females, with age between 40 and 60 years, and who were in third Pclass had low survival rate. I used theseto arrive at the predictions</p>
 
 </div>
 </div>
