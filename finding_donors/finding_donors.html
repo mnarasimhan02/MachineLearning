@@ -12089,7 +12089,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Total number of records</span>
@@ -13335,14 +13335,15 @@ It is a ratio of true positives(words classified as spam, and which are actually
 <p>Eg - Finding loyal vs fraud customers, Identify disease by analysizng patient health records, recommendation engines in ecommerce</p>
 <p>Strengths: 
     Random Forests avoid overfitting problem which occur in decision trees.
-    The random forest algorithm can be used for feature engineering, which means identifying the most important features out of the available features from the training dataset.
-Weaknesses: 
+    The random forest algorithm can be used for feature engineering, which means identifying the most important features out of the available features from the training dataset.</p>
+<p>Weakness: 
     They are less accurate compared to boosting models. They also take time to make predictions.</p>
-<p>SInce the model runs fast and doesn't overfit. This is a good choice for our application</p>
+<p>Reason for chosing this model : Since the model runs fast and doesn't overfit. This is a good choice for our application.</p>
 <p><a href="http://dataaspirant.com/2017/05/22/random-forest-algorithm-machine-learing/">http://dataaspirant.com/2017/05/22/random-forest-algorithm-machine-learing/</a></p>
 <h3 id="Gradient-Boosting-Classifier:">Gradient Boosting Classifier:<a class="anchor-link" href="#Gradient-Boosting-Classifier:">&#182;</a></h3><p>GBM is a boosting method, which builds on weak classifiers. The idea is to add a classifier at a time, so that the next classifier is trained to improve the already trained ensemble. Notice that for RF each iteration the classifier is trained independently from the rest</p>
-<p>Gradient Boosting perform better . Builds new trees by corrrecting errors in previous trees , which can provide highly acccurate results</p>
+<p>Strengths: Gradient Boosting performs better . Builds new trees by corrrecting errors in previous trees , which can provide highly acccurate results.</p>
 <p>Weakness - Need to tune hyper parameters. Difficult to run the model in parallel</p>
+<p>Reason for chosing the model : Boosting models provides accurate results and gradient boosting can be used for both classifier and regression models, hence choose Gradient boosting</p>
 <p><a href="http://blog.kaggle.com/2017/01/23/a-kaggle-master-explains-gradient-boosting/">http://blog.kaggle.com/2017/01/23/a-kaggle-master-explains-gradient-boosting/</a>
 <a href="http://fastml.com/what-is-better-gradient-boosted-trees-or-random-forest/">http://fastml.com/what-is-better-gradient-boosted-trees-or-random-forest/</a></p>
 <h3 id="Logistic-regression">Logistic regression<a class="anchor-link" href="#Logistic-regression">&#182;</a></h3><p>Logistic regression doesn’t give you discrete output or outright classes as output. Instead you get probabilities associated with each observation</p>
@@ -13351,6 +13352,7 @@ Outputs have a nice probabilistic interpretation, and the algorithm can be regul
 provides probabilities for outcomes</p>
 <p>Weakness:
 Logistic regression tends to underperform when there are multiple or non-linear decision boundaries. They are not flexible enough to naturally capture more complex relationships.</p>
+<p>Reason for chosting the model: Since we need to identify one variable (income) that predicts two outcomes (&gt;50K, &lt;=50K, which is binary, I choose logistic regression as another model for our problem</p>
 <p><a href="https://elitedatascience.com/machine-learning-algorithms">https://elitedatascience.com/machine-learning-algorithms</a></p>
 
 </div>
@@ -14306,7 +14308,7 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>Gradient Boosting Classifier is a good fit for the above usecase. The model has very high accuracy and F1 score, which means that model works well for both prediction and recall. The model performs similarly on both training and testing set and doesn't overfit  training data. Training the model takes a lot of time, however once the model is trained, the accuracy of the model is good and the model also takes less time to predict. The model is very well suited to minimal dataset sizes.</p>
+<p>Gradient Boosting Classifier is a good fit for the above usecase. The model has very high accuracy and F-beta score with beta=0.5 , which means that model works well for both prediction and recall. The model performs similarly on both training and testing set and doesn't overfit  training data. Training the model takes a lot of time, however once the model is trained, the accuracy of the model is good and the model also takes less time to predict. The model is very well suited to minimal dataset sizes.</p>
 
 </div>
 </div>
@@ -14332,7 +14334,9 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong> 
 Gradient Boosting is choosen as the final model</p>
-<p>Gradient boosting combines weak "learners" into a single strong learner in an iterative fashion. The model contains decision trees that can be called as "weak" and the model has a loss function, which measures the error in prediction at each iteration. Decision trees are added one by one and loss function is calculated and after verifying the loss, new tree is added that reduces the previous error. This is achieved by altering the parameters of the decision tree at each iteration. The training is stopped once the loss reaches the acceptable level. The gradient boosting algorithm improves by constructing a new model that adds an estimator to provide a better model</p>
+<p>Gradient boosting combines weak "learners" into a single strong learner in an iterative fashion. A weak learner can be compared to any model that works just a little better than random guess. To build the strong model, we need to find a good way to "combine" weak models.</p>
+<p>The model contains decision trees, which are tree like model for decison making that can be called as "weak" and a loss function. A loss function measures the error in prediction at each iteration and it provides a way to check if errors are decreased or not.</p>
+<p>Growing a tree involves deciding on which features to choose and what conditions to use for splitting, along with knowing when to stop. Decision trees are added one by one and loss function is calculated. After verifying the loss, new tree is added that reduces the previous error. This is achieved by altering the parameters of the decision tree at each iteration. The training is stopped once the loss reaches the acceptable level.</p>
 <p>References:
 <a href="https://en.wikipedia.org/wiki/Gradient_boosting">https://en.wikipedia.org/wiki/Gradient_boosting</a></p>
 <p><a href="https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/">https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/</a></p>
@@ -14577,9 +14581,9 @@ The Optimized model's scores are much better than the native predictor benchmark
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong> The five important ranked features are</p>
 <ol>
-<li>Age 2.occupation 3.income 4. education-num 5.capital-gain</li>
+<li>Age 2.occupation 3.capital-loss 4. education-num 5.capital-gain</li>
 </ol>
-<p>Age would typically tell us the person's earning potential in the upcoming years. Occupation , income will tell us how wealthy the person is. education-num will tell about his career and background and capital_gain on his profit/savings</p>
+<p>Age would typically tell us the person's earning potential in the upcoming years. Occupation , capital-loss will tell us how much the person is losing money, thereby helping us dtermine if he would be willing to donate . education-num will tell about his career and background and capital_gain on his profit/savings</p>
 
 </div>
 </div>
@@ -14967,8 +14971,8 @@ gJIkST1jAJQkSeoZA6AkSVLP/AfX88lvTs44XQAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>I have three hits (education-num, age and capital_gain). I thought that income and occupation would provide insights into the person's earning potential, but capital-loss and maritial -status are providing more insights as the trained model provides good scores and weights of feature importances.</p>
-<p>According to the model, capital-loss and maritial status are more important than occupation and income and these features also have more weights than occupation and income. Education-num has more weightage and gives more insights than occupation and income and hence these features are not very relevant.</p>
+<p>I have four hits (education-num, age , capital_gain and capital_loss). I thought that occupation would provide insights into the person's earning potential, but maritial -status is providing more insights as the trained model provides good scores and weights of feature importances for Marital_status.</p>
+<p>According to the model,  maritial status is more important than occupation and the feature also have more weights than occupation.</p>
 
 </div>
 </div>
@@ -15059,7 +15063,7 @@ F-score on testing data: 0.7346
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong>
 The F-score and accuracy are slightly lesser for the 5 features than for the complete set of features.
-If training was a facor, I would not reduce the data as the time reduced is very less. The reduced features is avery good choice if computational power is of importance.</p>
+If training was a facor, I would not reduce the data as the time reduced is very less.</p>
 
 </div>
 </div>
