@@ -13186,7 +13186,8 @@ WZU4wTIzMzMzM6uS/w9vE8c+Z8FwBQAAAABJRU5ErkJggg==
 <p>Left: This is required when the smartcab wants to take a left. It is important to know traffic coming from left as a right turn is permitted on red light if there is no traffic.</p>
 <p>Oncoming: We need to know the intended direction of travel of a vehicle across the intersection. oncoming traffic direction because the smartcab needs to yield to oncoming traffic going right or forward if wanting to make a left turn at a green light.</p>
 <p>Ignored Features:</p>
-<p>Deadline: While this may be an important metric, the safety and relaibility of teh agent is not impacted with this metric and hence we can ignore this metric.</p>
+<p>Deadline: While this may be an important metric, the safety and relaibility of the agent is not impacted with this metric and hence we can ignore this metric.</p>
+<p>Including deadline metric adds additional large number of state spaces to explore and this will be difficult and take time to learn for the agent and as large number of states would have Q=0 and the agent is unlikely to learn generalized rules of traffic with 20 trials of training.</p>
 <p>Right: There are no known scenario's for which the agent should know the car in right. It could learn to just stay idle. Discarding this input cuts down the number of states required and doesnt create a huge disadvantage.</p>
 
 </div>
@@ -16106,9 +16107,19 @@ rkJggg==
 <p>Order of state is: light, waypoint, left, oncoming</p>
 <p>Consideration for optimal policy</p>
 <p>Movement under "RED" should have high penalty. This would mean the agent has learnt the most basic traffic rule.</p>
+<p>Edge case for RED</p>
+<p>If light is red:
+    If waypoint is right
+        If Traffic from left is none:
+            Follow waypoint</p>
 <p>GREEN light should encourage movement, but few conditions should be satisfied.
     if the oncoming traffic is in same direction as waypoint this will cause a collision, the action should be avoided.
     if the oncoming traffic is in same direction as the waypoint, the waypoint direction should be given preference.</p>
+<p>Edge case for GREEN</p>
+<p>If light is green:
+    If waypoint is left:
+        If oncoming is right or forward:
+            Do None</p>
 <p>('red', 'left', 'left', 'left')
  -- forward : -15.66
  -- None : 0.95 - highest ranked &amp; optimal
@@ -16135,6 +16146,7 @@ rkJggg==
  -- None : 0.00
  -- right : 0.57
  -- left : 0.78 --&gt; highest ranked</p>
+<p>There are a few mistakes by the smartcab agent and if you look closely, the rank is 0 under these circumstances, which reflects that the number of trials (or epsilon) is not high enough for them to be tested.</p>
 <p>Learned 
  ('red', 'right', None, 'left')
  -- forward : -8.82
@@ -16142,7 +16154,7 @@ rkJggg==
  -- right : 2.59
  -- left : -4.85</p>
 <p>The smartcab agent have effectively learnt the right turning rule here, but it isnt very clear if it is unintentional, but still obey the traffic safety rule.</p>
-<p>FOr actions that would create traffic accident, the agent gets negative rewards and this is the reason why the agent did not get into any accident in any of the trial runs.</p>
+<p>For actions that would create traffic accident, the agent gets negative rewards and this is the reason why the agent did not get into any accident in any of the trial runs.</p>
 <p>When we look into state-action rewards from Q-Learning, most of the state action pairs have some value and hence the learner undergo a lot of state changes and make calculated decisons within the environment</p>
 
 </div>
