@@ -8,17 +8,17 @@ Mahesh Narasimhan
 
 Files
 
-The project contains the following files:
+### The project contains the following files:
 
-Yelp_Review_Sentiment_Analysis.ipynb: This is the Python Notebook containing all the code and analysis done for the project.
+	1. Yelp_Review_Sentiment_Analysis.ipynb:This is the Python Notebook containing all the code and analysis done for the project.
 
-Yelp_Review_Sentiment_Analysis_report.pdf: This contains the project report.
+	2. Yelp_Review_Sentiment_Analysis_report.pdf: This contains the project report.
 
-Capstone_nlp.pdf: This python notebook contains the project proposal.
+	3. Capstone_nlp.pdf: This python notebook contains the project proposal.
 
-csv files: These are the source files from kaggle.
+	4. csv files: These are the source files from kaggle.
 
-Requirements
+#### Requirements
 
 Software
 
