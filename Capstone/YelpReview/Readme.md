@@ -1,19 +1,18 @@
-Machine Learning Engineer Nanodegree
+## Machine Learning Engineer Nanodegree
 
-Capstone Proposal - Sentiment Analysis of Yelp review dataset from Kaggle 
+### Capstone Proposal - Sentiment Analysis of Yelp review dataset from Kaggle 
 
-January 11, 2017
+January 14, 2017
 
-Rohan Verma
-June 19th, 2017
+Mahesh Narasimhan
 
 Files
 
 The project contains the following files:
 
-Yelp_Review_Sentiment_Analysis: This is the Python Notebook containing all the code and analysis done for the project.
+Yelp_Review_Sentiment_Analysis.ipynb: This is the Python Notebook containing all the code and analysis done for the project.
 
-report.ipynb: This contains the project report.
+Yelp_Review_Sentiment_Analysis_report.pdf: This contains the project report.
 
 Capstone_nlp.pdf: This python notebook contains the project proposal.
 
@@ -23,7 +22,7 @@ Requirements
 
 Software
 
-Jupyter Notebook, numpy, pandas, matplotlib, seaborn, pickle, sklearn, xgboost.
+Jupyter Notebook, numpy, pandas, matplotlib, seaborn, sklearn.
 
 Dataset
 
